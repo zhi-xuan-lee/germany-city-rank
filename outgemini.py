@@ -95,7 +95,7 @@ base_df = load_and_process_data().copy()
 # ⚙️ 側邊欄加權調整區
 # =====================================================================
 st.sidebar.header("⚙️ 指標權重比例配置 (%)")
-st.sidebar.write("拖動滑桿可即時動態觀察右側 Plotly 圖表與排名的變化：")
+st.sidebar.write("拖動滑桿可即時動態觀察右側圖表與排名的變化：")
 
 w_living = st.sidebar.slider("🪙 生活成本權重", 0, 100, 15)
 w_rent = st.sidebar.slider("🏠 平均租金權重", 0, 100, 15)
@@ -131,9 +131,9 @@ df_sorted = base_df.sort_values(by="total_score", ascending=False).reset_index(
 # =====================================================================
 # 🏢 主網頁網格與圖表配置 (Layout & Visualization)
 # =====================================================================
-st.title("🇩🇪 德國城市搬遷與生活綜合評估系統")
+st.title("🇩🇪 德國留學生活綜合評估系統")
 st.markdown(
-    "歡迎來到決策系統！本介面由**前端與視覺化設計師**打造。完美整合 **互動地圖**、**Plotly 質感圖表** 與 **動態加權演算法**。"
+    "自訂生活權重，動態演算最適合你的德國留學城市！"
 )
 st.markdown("---")
 
@@ -166,7 +166,7 @@ with row1_col1:
             clicked_city = match.iloc[0]
 
 with row1_col2:
-    st.subheader("📊 城市綜合得分排行 (Plotly 質感長條圖)")
+    st.subheader("📊 城市綜合得分排行")
 
     fig_bar = px.bar(
         df_sorted,
